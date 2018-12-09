@@ -1,9 +1,24 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <LangVersion>7.1</LangVersion>
+
+    <Version>1.1.0.0</Version>
+    <Authors>Niels Penneman</Authors>
+    <Company>Niels Penneman</Company>
+    <Product>ngswview</Product>
+    <PackageId>ngswview</PackageId>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Description>NETGEAR Switch Synoptical Configuration Overview Builder</Description>
+    <Copyright>Copyright (C) 2018  Niels Penneman</Copyright>
+    <PackageLicenseUrl>https://www.gnu.org/licenses/agpl-3.0.en.html</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/niels-penneman/ngswview</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/niels-penneman/ngswview.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,6 +29,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Packaging.Targets" Version="0.1.1-*" />
+    <DotNetCliToolReference Include="dotnet-deb" Version="0.1.1-*" />
+  </ItemGroup>
+
   <ItemGroup>
     <Content Remove="Netgear\Visualization\Stylesheet.css" />
   </ItemGroup>
