@@ -29,6 +29,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Netgear.Visualization
 {
@@ -145,6 +146,9 @@ namespace Netgear.Visualization
             using (var reader = new StreamReader(resourceStream, Encoding.UTF8))
             {
                 Stylesheet = reader.ReadToEnd();
+                Stylesheet = Regex.Replace(Stylesheet, @"\/\*.+\*/", string.Empty, RegexOptions.Singleline);
+                Stylesheet = Regex.Replace(Stylesheet, @"\s+", " ");
+                Stylesheet = Regex.Replace(Stylesheet, @"(( (?<c>[:;,\{\}\>]))|((?<c>[:;,\{\}\>]) ))", "${c}", RegexOptions.ExplicitCapture);
             }
         }
 
