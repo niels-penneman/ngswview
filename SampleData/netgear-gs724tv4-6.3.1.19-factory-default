@@ -1,0 +1,21 @@
+0x4e470x010x00GS7XXT              6.3.1.19            0x000000000x00000000000000
+
+! The line above is the NSDP Text Configuration header. DO NOT EDIT THIS HEADER
+
+!Current Configuration:
+!
+!System Description "GS724Tv4 ProSafe 24-port Gigabit Ethernet Smart Switch, 6.3.1.19, B1.0.0.4"
+!System Software Version "6.3.1.19"
+!System Up Time          "0 days 0 hrs 0 mins 58 secs"
+!Additional Packages     QOS,IPv6 Management,Routing
+!Current SNTP Synchronized Time: SNTP Client Mode Is Disabled
+! 
+vlan database
+exit 
+configure
+line console
+exit 
+line telnet
+exit 
+! 
+exit 
