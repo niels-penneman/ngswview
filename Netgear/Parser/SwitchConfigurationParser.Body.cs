@@ -97,6 +97,9 @@ namespace Netgear.Parser
                 new RegexMatcher(@"^ip name server(?<servers>( [^\s]+)+)$", groups => {
                     m_configuration.DnsServers = groups["servers"].Value.Split(' ', StringSplitOptions.RemoveEmptyEntries);
                 }),
+                new RegexMatcher("^ipv6 access-list ", _ => {
+                    ParseBodyIpv6AccessList();
+                }),
                 new ExactMatcher("lineconfig", ParseBodyLineConfig),
                 new ExactMatcher("line console", ParseBodyLineConsole),
                 new ExactMatcher("line telnet", ParseBodyLineTelnet),
@@ -217,6 +220,15 @@ namespace Netgear.Parser
                         interfaceConfiguration.Vlan.Tagging.Add(id);
                     }
                 })
+            });
+        }
+
+        private void ParseBodyIpv6AccessList()
+        {
+            // We don't visualize ACLs for now
+            Parse("lineconfig", new LineMatcher[] {
+                new ExactMatcher("deny every", () => {}), /* Ignore */
+                new ExactMatcher("exit", null)
             });
         }
 
