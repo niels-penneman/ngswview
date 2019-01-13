@@ -7,11 +7,12 @@ CONFIGURATION='Release'
 FRAMEWORK='netcoreapp2.0'
 RUNTIME='linux-arm'
 ARGS="-c ${CONFIGURATION} -f ${FRAMEWORK} -r ${RUNTIME}"
-find "./bin/Release/${FRAMEWORK}/${RUNTIME}/" -name "ngswview.*.${RUNTIME}deb" -delete
+find "./bin/${CONFIGURATION}/${FRAMEWORK}/${RUNTIME}/" -name "ngswview.*.${RUNTIME}.deb" -delete
+dotnet restore -r ${RUNTIME}
 dotnet clean ${ARGS}
 dotnet build ${ARGS}
 dotnet deb ${ARGS}
-DEBFILE=`find "./bin/Release/${FRAMEWORK}/${RUNTIME}/" -name "ngswview.*.${RUNTIME}.deb"`
+DEBFILE=`find "./bin/${CONFIGURATION}/${FRAMEWORK}/${RUNTIME}/" -name "ngswview.*.${RUNTIME}.deb"`
 rm -rf .rpi.deb
 mkdir .rpi.deb
 cd .rpi.deb
