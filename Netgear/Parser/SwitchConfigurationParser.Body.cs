@@ -264,7 +264,12 @@ namespace Netgear.Parser
                         m_configuration.VlanDatabase.Add(ushort.Parse(id), string.Empty);
                     }
                 }),
-                new RegexMatcher("^vlan name (?<id>[0-9]+) \"(?<name>[^\"]*)\"$", groups => {
+                new RegexMatcher("^vlan association mac (?<mac>([0-9A-F]{2}:){5}[0-9A-F]{2}) (?<id>[0-9]{1,4})$", groups => {
+                    var mac = groups["mac"].Value;
+                    var id = ushort.Parse(groups["id"].Value);
+                    m_configuration.MacBasedVlans.Add(mac, id);
+                }),
+                new RegexMatcher("^vlan name (?<id>[0-9]{1,4}) \"(?<name>[^\"]*)\"$", groups => {
                     var id = ushort.Parse(groups["id"].Value);
                     var name = groups["name"].Value;
                     if (!m_configuration.VlanDatabase.ContainsKey(id))

@@ -311,6 +311,34 @@ namespace Netgear.Visualization
                 }
                 writer.Write("</tbody></table></div>");
 
+                // MAC-based VLANs table
+                bool haveMacBasedVlans = false;
+                foreach (var configuration in m_configurations)
+                {
+                    if (configuration.MacBasedVlans.Count > 0)
+                    {
+                        haveMacBasedVlans = true;
+                        break;
+                    }
+                }
+                if (haveMacBasedVlans)
+                {
+                    writer.Write("<div><h2>MAC-based VLANs</h2>"
+                        + "<table><thead><tr><th>MAC Address</th><th>Switch</th><th>VLAN ID</th>");
+                    writer.Write("</tr></thead><tbody>");
+                    foreach (var configuration in m_configurations)
+                    {
+                        var switchName = OverviewTable.Header.Getter(configuration);
+                        foreach (var entry in configuration.MacBasedVlans)
+                        {
+                            writer.Write($"<tr><td>{entry.Key}</td>"
+                                + $"<td>{switchName}</td>"
+                                + $"<td>{entry.Value}</td></tr>");
+                        }
+                    }
+                    writer.Write("</tbody></table></div>");
+                }
+
                 // Build interface list
                 var interfaceFields = new List<Func<InterfaceConfiguration, object>>();
                 writer.Write("<div class=\"wide\"><h2>Interfaces</h2><table><thead>");

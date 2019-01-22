@@ -42,6 +42,7 @@ namespace Netgear
         public GreenModeConfiguration GreenMode { get; } = new GreenModeConfiguration();
         public IDictionary<string, InterfaceConfiguration> Interfaces { get; } = new Dictionary<string, InterfaceConfiguration>();
         public bool Ipv4DhcpFilteringEnabled { get; set; } = false;
+        public Dictionary<string, ushort> MacBasedVlans = new Dictionary<string, ushort>();
         public ManagementInterfaceConfiguration ManagementInterface { get; } = new ManagementInterfaceConfiguration();
         public string Model { get; }
         public string SnmpServerSysName { get; set; }
