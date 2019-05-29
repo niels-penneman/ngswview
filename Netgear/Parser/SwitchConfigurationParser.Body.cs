@@ -115,6 +115,9 @@ namespace Netgear.Parser
                 new ExactMatcher("no voip status", () => {
                     m_configuration.VoiceVlan.Enabled = false;
                 }),
+                new RegexMatcher("^snmp-server location \"(?<location>[^\"]*)\"$", groups => {
+                    m_configuration.SnmpServerLocation = groups["location"].Value;
+                }),
                 new RegexMatcher("^snmp-server sysname \"(?<name>[^\"]*)\"$", groups => {
                     m_configuration.SnmpServerSysName = groups["name"].Value;
                 }),

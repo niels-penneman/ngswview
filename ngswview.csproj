@@ -6,14 +6,14 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <LangVersion>7.1</LangVersion>
 
-    <Version>1.3.0.0</Version>
+    <Version>1.4.0.0</Version>
     <Authors>Niels Penneman</Authors>
     <Company>Niels Penneman</Company>
     <Product>ngswview</Product>
     <PackageId>ngswview</PackageId>
     <NeutralLanguage>en</NeutralLanguage>
     <Description>NETGEAR Switch Synoptical Configuration Overview Builder</Description>
-    <Copyright>Copyright (C) 2018  Niels Penneman</Copyright>
+    <Copyright>Copyright (C) 2019  Niels Penneman</Copyright>
     <PackageLicenseUrl>https://www.gnu.org/licenses/agpl-3.0.en.html</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/niels-penneman/ngswview</PackageProjectUrl>
     <RepositoryUrl>https://github.com/niels-penneman/ngswview.git</RepositoryUrl>

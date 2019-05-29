@@ -45,6 +45,7 @@ namespace Netgear
         public Dictionary<string, ushort> MacBasedVlans = new Dictionary<string, ushort>();
         public ManagementInterfaceConfiguration ManagementInterface { get; } = new ManagementInterfaceConfiguration();
         public string Model { get; }
+        public string SnmpServerLocation { get; set; }
         public string SnmpServerSysName { get; set; }
         public SntpClientMode SntpClientMode { get; set; } /* DEFAULT?? */
         public IList<string> SntpServers { get; } = new List<String>();

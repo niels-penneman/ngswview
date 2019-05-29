@@ -45,7 +45,8 @@ namespace Netgear.Visualization
             new SwitchProperty(string.Empty, c => c.SnmpServerSysName), new [] {
             new SwitchCategory("General", new [] {
                 new SwitchProperty("Model", c => c.Model),
-                new SwitchProperty("Firmware version", c => c.FirmwareVersion)
+                new SwitchProperty("Firmware version", c => c.FirmwareVersion),
+                new SwitchProperty("Location", c => c.SnmpServerLocation)
             }),
             new SwitchCategory("Management", new [] {
                 new SwitchProperty("Management VLAN", c => c.ManagementInterface.VLAN),
